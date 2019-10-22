@@ -51,6 +51,8 @@ start.addEventListener("click", function(evt) {
     evt.preventDefault();
     console.log("success!"); })
 
+const gameOver = document.querySelector(".gameOver");
+
 // | Flashes according to [round]                  |     * CHECKS *     |
 // | Randomizes order with Math.floor(Math.random) | - Value of [round] |
 // | Pushes order to an [order] array              |                    |
@@ -68,7 +70,11 @@ buttons.forEach(function(but) {
 // | If 'Game Over' is shown, show [round] | - 'Game Over' visibility == 'hidden'  |
 // | If 'Game Over' is hidden, next round  | - 'Game Over' visibility == 'visible' |
 function checkOrder() {
- }
+    if (order == playerOrder) {
+        round = round + 1;
+    } else {
+        gameOver.style.visibility = "null";
+        gameOver.style.visibility = "visible"} }
 
 // SAMPLE CODE
 
