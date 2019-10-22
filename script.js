@@ -30,11 +30,23 @@
 // KEEPING SCORE
 // RESETTING FLASH ORDER BACK TO START
 
-let round = 0;
+let round = 3;
 let flash = round;
 let order = [];
 let playerOrder = [];
 let turn = 0;
+
+var min = 1;
+var max = 4;
+// | Flashes according to [round]                  |     * CHECKS *     |
+// | Randomizes order with Math.floor(Math.random) | - Value of [round] |
+// | Pushes order to an [order] array              |                    |
+function flashButtons() {
+    while (order.length < round) {
+        order.push(Math.floor(Math.random() * (max - min + 1)) + min)
+        console.log(order)
+    }
+}
 
 // | GAME BUTTONS |
 const buttons = document.querySelectorAll(".button");
@@ -67,16 +79,6 @@ start.addEventListener("click", function(evt) {
 
 // | GAME OVER MESSAGE |
 const gameOver = document.querySelector(".gameOver");
-
-// | Flashes according to [round]                  |     * CHECKS *     |
-// | Randomizes order with Math.floor(Math.random) | - Value of [round] |
-// | Pushes order to an [order] array              |                    |
-function flashButtons() {
-    if (order.length < round) {
-        order.push(Math.floor(Math.random() * buttons.length))
-    }
-}
-
 
 // | Compares [order] with [playerOrder]   |              * CHECKS *               |
 // | If they match, add 1 to [round]       | - [order] == [playerOrder]            |
