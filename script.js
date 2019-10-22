@@ -31,20 +31,30 @@
 // RESETTING FLASH ORDER BACK TO START
 
 const start = document.querySelector(".start");
+
+const buttons = document.querySelectorAll(".button");
+
+buttons.forEach(function(but) {
+    but.addEventListener("click", function(evt) {
+        evt.preventDefault();
+        console.log("success!");
+    })
+})
+
+class Simon {
+    constructor(flash, round) {
+        this.flash = flash
+        this.round = round
+        this.order = [];
+        this.playerOrder = [];
+    }
+}
+let simon = new Simon
+
 start.addEventListener("click", function(evt) {
     evt.preventDefault();
-    startGame();
+    simon.startGame();
 })
-
-let order = [];
-let playerOrder = [];
-let flash;
-let round;
-
-const buttons = document.querySelectorAll("click", function(evt) {
-    evt.preventDefault();
-})
-
 // function startGame() {
 
 // }
