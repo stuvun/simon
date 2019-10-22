@@ -30,9 +30,37 @@
 // KEEPING SCORE
 // RESETTING FLASH ORDER BACK TO START
 
-const start = document.querySelector(".start");
+let round = 1;
+let flash = round;
+let order = [];
+let playerOrder = [];
 
 const buttons = document.querySelectorAll(".button");
+// | Player clicks same amount of buttons as [round]   | CHECKS
+// | Clicked button values push to [playerOrder] array | - Click count
+buttons.forEach(function(but) {
+    but.addEventListener("click", function(evt) {
+        evt.preventDefault();
+        console.log("success!");
+
+        playerOrder.push()
+    })
+})
+
+const start = document.querySelector(".start");
+// | Starts the Simon Game |
+start.addEventListener("click", function(evt) {
+    evt.preventDefault();
+    console.log("success!");
+})
+
+// | Flashes according to [round]                  | CHECKS
+// | Randomizes order with Math.floor(Math.random) | - Value of [round]
+// | Pushes order to an [order] array              |
+function flashButtons() {
+
+}
+
 
 buttons.forEach(function(but) {
     but.addEventListener("click", function(evt) {
@@ -41,45 +69,14 @@ buttons.forEach(function(but) {
     })
 })
 
-class Simon {
-    constructor(flash, round) {
-        this.flash = flash
-        this.round = round
-        this.order = [];
-        this.playerOrder = [];
-    }
+// | Compares [order] with [playerOrder]   | CHECKS                               |
+// | If they match, add 1 to [round]       | - [order] == [playerOrder]           |
+// | If they don't match, show 'Game Over' | - [order] != [playerOrder]           |
+// | If 'Game Over' is shown, show [round] | - 'Game Over' visibility == 'hidden'  |
+// | If 'Game Over' is hidden, next round  | - 'Game Over' visibility == 'visible' |
+function checkOrder() {
+
 }
-let simon = new Simon
-
-start.addEventListener("click", function(evt) {
-    evt.preventDefault();
-    simon.startGame();
-})
-// function startGame() {
-
-// }
-
-// function flashSequence() {
-
-// }
-
-// function playSequence() {
-
-// }
-
-// function flashCheck() {
-
-// }
-
-// function roundCheck() {
-
-// }
-
-// function playerScore() {
-
-// }
-
-
 
 // REFERENCE CODE
 
