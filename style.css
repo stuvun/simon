@@ -11,7 +11,8 @@ html, body {
     height: 50vh;
     width: 50vh;
     grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr; }
+    grid-template-columns: 1fr 1fr;
+    margin: 0 auto; }
 
 .button {
     height: 1fr;
@@ -40,3 +41,8 @@ html, body {
     grid-row: 2 / span 1;
     grid-column: 2 / span 1;
     background: blue; }
+
+.startContainer {
+    width: 10vh;
+    height: 4vh;
+    margin: 20vh auto 0vh auto; }

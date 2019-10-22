@@ -30,7 +30,7 @@
 // KEEPING SCORE
 // RESETTING FLASH ORDER BACK TO START
 
-let round = 3;
+let round = 0;
 let flash = round;
 let order = [];
 let playerOrder = [];
