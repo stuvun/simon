@@ -40,7 +40,7 @@ const buttons = document.querySelectorAll(".button");
 // | Player clicks same amount of buttons as [round]   |  * CHECKS *   |
 // | Clicked button values push to [playerOrder] array | - Click count |
 buttons.onclick = function() {
-    console.log("success!");
+    console.log("success!"); }
 
     // playerOrder.push() }
 
@@ -70,41 +70,10 @@ buttons.forEach(function(but) {
 // | If 'Game Over' is shown, show [round] | - 'Game Over' visibility == 'hidden'  |
 // | If 'Game Over' is hidden, next round  | - 'Game Over' visibility == 'visible' |
 function checkOrder() {
-    if (order == playerOrder) {
+    if (JSON.stringify(order) == JSON.stringify(playerOrder)) {
         round = round + 1;
+        console.log(round);
     } else {
         gameOver.style.visibility = "null";
-        gameOver.style.visibility = "visible"} }
-
-// SAMPLE CODE
-
-// var c = 100;
-// var t;
-// var timer_is_on = 0;
-
-// function timedCount() {
-//   document.getElementById("txt").value = c;
-//   c -= 1;
-//   t = setTimeout(timedCount, 200);
-// }
-
-// function startCount() {
-//   if (!timer_is_on) {
-//     timer_is_on = 1;
-//     timedCount();
-//   }
-// }
-
-// function stopCount() {
-//   clearTimeout(t);
-//   timer_is_on = 0;
-// }
-
-// buttons.forEach(function(but) {
-//     but.addEventListener("click", function(evt) {
-//         evt.preventDefault();
-//         console.log("success!");
-
-//         playerOrder.push()
-//     })
-// })
+        gameOver.style.visibility = "visible"}
+        console.log(gameOver.style.visibility); }
