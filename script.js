@@ -39,10 +39,14 @@ let playerOrder = [];
 const buttons = document.querySelectorAll(".button");
 // | Player clicks same amount of buttons as [round]   |  * CHECKS *   |
 // | Clicked button values push to [playerOrder] array | - Click count |
-buttons.onclick = function() {
-    console.log("success!"); }
 
-    // playerOrder.push() }
+buttons.forEach(function(but) {
+    but.addEventListener("click", function(evt) {
+        evt.preventDefault();
+
+        playerOrder.push(but.value);
+        console.log(playerOrder);
+        console.log("success!"); }) })
 
 // | START BUTTON |
 const start = document.querySelector(".start");
@@ -51,18 +55,14 @@ start.addEventListener("click", function(evt) {
     evt.preventDefault();
     console.log("success!"); })
 
+// | GAME OVER MESSAGE |
 const gameOver = document.querySelector(".gameOver");
 
 // | Flashes according to [round]                  |     * CHECKS *     |
 // | Randomizes order with Math.floor(Math.random) | - Value of [round] |
 // | Pushes order to an [order] array              |                    |
-function flashButtons() {
- }
+function flashButtons() {}
 
-buttons.forEach(function(but) {
-    but.addEventListener("click", function(evt) {
-        evt.preventDefault();
-        console.log("success!"); }) })
 
 // | Compares [order] with [playerOrder]   |              * CHECKS *               |
 // | If they match, add 1 to [round]       | - [order] == [playerOrder]            |
