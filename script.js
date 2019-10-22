@@ -32,7 +32,7 @@
 
 let round = 1;
 let flash = round;
-let order = [];
+let order = [2,3,4];
 let playerOrder = [];
 
 // | GAME BUTTONS |
@@ -44,9 +44,18 @@ buttons.forEach(function(but) {
     but.addEventListener("click", function(evt) {
         evt.preventDefault();
 
-        playerOrder.push(but.value);
-        console.log(playerOrder);
-        console.log("success!"); }) })
+        console.log(but.value);
+
+        if (playerOrder.length < order.length) {
+            playerOrder.push(but.value);
+            console.log(playerOrder);
+        } else {
+            console.log(playerOrder);
+            buttons.disabled = "true;";
+            console.log(buttons.onclick)
+        }
+    })
+})
 
 // | START BUTTON |
 const start = document.querySelector(".start");

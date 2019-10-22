@@ -15,7 +15,11 @@ html, body {
 
 .button {
     height: 1fr;
-    width: 1fr; }
+    width: 1fr;
+    }
+
+.button:focus { 
+    outline: none; } 
 
 #green {
     grid-row: 1 / span 1;
