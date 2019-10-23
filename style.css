@@ -1,23 +1,38 @@
 html, body {
-    width: 100%;
     height: 100%;
+    width: 100%;
     margin: 0 auto;
     padding: 0px;
     overflow-x: hidden;
-    overflow-y: hidden; }
+    overflow-y: hidden;
+    box-sizing: border-box; }
+
+*, *:before, *:after { box-sizing: inherit;}
+
+header {
+    width: 50vw;
+    height: auto;
+    margin: 0 auto;
+    font-family: Helvetica, sans-serif;
+    font-size-adjust: auto;
+    text-align: center;
+}
+
+.gridWrap {
+    max-width: 500px;
+    margin: 25%;
+}
+
+.buttonContainer .button {
+    padding-top: 100%;
+}
 
 .buttonContainer {
+    position: relative;
     display: grid;
-    height: 50vh;
-    width: 50vh;
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
-    margin: 0 auto; }
-
-.button {
-    height: 1fr;
-    width: 1fr;
-    }
+    overflow: hidden; }
 
 .button:focus { 
     outline: none; } 
@@ -43,6 +58,6 @@ html, body {
     background: blue; }
 
 .startContainer {
-    width: 10vh;
+    width: 10vw;
     height: 4vh;
     margin: 20vh auto 0vh auto; }
