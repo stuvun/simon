@@ -77,11 +77,7 @@ function flashButtons() {
             console.log(order); }
         else { return } }, 200);
 }
-        // buttons[order[order.length - 1]].style.background = "red;";
-        // console.log(buttons[2].style.background)
 
-// | Player clicks same amount of buttons as [round]   |  * CHECKS *   |
-// | Clicked button values push to [playerOrder] array | - Click count |
 buttons.forEach(function(but) {
     but.addEventListener("click", function(evt) {
         evt.preventDefault();
