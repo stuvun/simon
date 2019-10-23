@@ -75,8 +75,12 @@ function flashButtons() {
         if (order.length < round) {
             order.push(JSON.stringify(Math.floor(Math.random() * (max - min + 1)) + min));
             console.log(order); }
-        else { return } }, 200);
+        else { return } });
 }
+
+order.forEach(function(index) {
+    
+})
 
 buttons.forEach(function(but) {
     but.addEventListener("click", function(evt) {
