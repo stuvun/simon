@@ -3,7 +3,6 @@ let flash = round;
 let order = [];
 let playerOrder = [];
 let turn = 1;
-let restart = 0;
 const min = 1;
 const max = 4;
 
@@ -26,11 +25,13 @@ function flashButtons() {
 
             order.forEach(function(seq) {
                 console.log(order[seq])
-            })
+            });
 
-            if (turn != 0) { turn = 0; }
-        } else { return }
-    }, 200);
+            if (turn != 0) {
+                turn = 0;
+        } else { return; }
+        }
+    }, 200)
 }
 
 function endGame() {
@@ -62,20 +63,21 @@ function startGame() {
 buttons.forEach(function(but) {
     but.addEventListener("click", function(evt) {
         evt.preventDefault();
-
-        console.log(but.value);
-
-        if (playerOrder.length < order.length - 1) {
-            playerOrder.push(but.value);
-            console.log(playerOrder);
-            console.log(round);
-        } else if (playerOrder.length == order.length - 1) {
-            playerOrder.push(but.value);
-            console.log(playerOrder);
-            checkOrder();
-            playerOrder.length = 0;
-            turn = turn = 1;
-            return;
-        } else { return; }
+        
+            if (playerOrder.length < order.length - 1 && turn == 0) {
+                console.log(but.value);
+                playerOrder.push(but.value);
+                console.log(playerOrder);
+                console.log(round);
+            } else if (playerOrder.length == order.length - 1) {
+                playerOrder.push(but.value);
+                console.log(playerOrder);
+                checkOrder();
+                playerOrder.length = 0;
+                turn = 1;
+                return;
+            } else {
+                return;
+            }
     })
 })
