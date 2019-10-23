@@ -36,6 +36,8 @@ function flashButtons() {
 
 function endGame() {
     console.log("Click Start Game to retry!");
+    // start.style.visibility = "null;"
+    start.style.visibility = "visible";
 }
 
 function checkOrder() {
@@ -50,8 +52,13 @@ function checkOrder() {
 }
 
 function startGame() {
+    if (start.style.visibility == "visible") {
+        start.style.visibility = "hidden"
+    };
+
     if (gameOver.style.visibility == "visible") {
-        order.length = 0; round = 1 }
+        order.length = 0; round = 1
+    };
 
     gameOver.style.visibility = "hidden";
 
