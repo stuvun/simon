@@ -30,7 +30,7 @@
 // KEEPING SCORE
 // RESETTING FLASH ORDER BACK TO START
 
-let round = 100;
+let round = 10;
 let flash = round;
 let order = [];
 let playerOrder = [];
@@ -62,9 +62,11 @@ buttons.forEach(function(but) {
         if (playerOrder.length < order.length) {
             playerOrder.push(but.value);
             console.log(playerOrder);
+            console.log(round);
+        } else if (playerOrder.length == round) {
             round = round + 1;
             console.log(round);
-        } else if (playerOrder.length >= round) {
+        } else if (playerOrder.length > round) {
             return;
         }
     })
