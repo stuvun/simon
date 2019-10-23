@@ -1,29 +1,28 @@
 html, body {
-    height: 100%;
-    width: 100%;
+    height: 100vh;
+    width: 100vw;
     margin: 0 auto;
     padding: 0px;
     overflow-x: hidden;
-    overflow-y: hidden;
     box-sizing: border-box; }
 
 *, *:before, *:after { box-sizing: inherit;}
 
 header {
-    width: 50vw;
-    height: auto;
+    max-width: 500px;
     margin: 0 auto;
     font-family: Helvetica, sans-serif;
-    font-size-adjust: auto;
+    font-size: 7vw;
     text-align: center;
 }
 
 .gridWrap {
     max-width: 500px;
-    margin: 25%;
+    margin: 5vh auto 5vh auto;
 }
 
 .buttonContainer .button {
+    display: grid;
     padding-top: 100%;
 }
 
@@ -58,6 +57,13 @@ header {
     background: blue; }
 
 .startContainer {
-    width: 10vw;
-    height: 4vh;
-    margin: 20vh auto 0vh auto; }
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    max-width: 100vw;
+    margin: 0 auto; }
+
+.start {
+    text-align: center;
+    font-size: 2vw;
+}
