@@ -38,15 +38,6 @@ let turn = 0;
 
 var min = 1;
 var max = 4;
-// | Flashes according to [round]                  |     * CHECKS *     |
-// | Randomizes order with Math.floor(Math.random) | - Value of [round] |
-// | Pushes order to an [order] array              |                    |
-function flashButtons() {
-    while (order.length < round) {
-        order.push(Math.floor(Math.random() * (max - min + 1)) + min)
-        console.log(order)
-    }
-}
 
 // | GAME BUTTONS |
 const buttons = document.querySelectorAll(".button");
@@ -71,6 +62,26 @@ buttons.forEach(function(but) {
         }
     })
 })
+
+
+
+
+// | Flashes according to [round]                  |     * CHECKS *     |
+// | Randomizes order with Math.floor(Math.random) | - Value of [round] |
+// | Pushes order to an [order] array              |                    |
+function flashButtons() {
+    let flashInterval =
+    setInterval( function() {
+        if (order.length < round) {
+            order.push(Math.floor(Math.random() * (max - min + 1)) + min);
+            console.log(order); }
+        else { return } }, 200);
+}
+        // buttons[order[order.length - 1]].style.background = "red;";
+        // console.log(buttons[2].style.background)
+
+
+
 
 // | START BUTTON |
 const start = document.querySelector(".start");
