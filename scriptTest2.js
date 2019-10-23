@@ -8,35 +8,28 @@ const max = 4;
 
 const start = document.querySelector(".start");
 
-start.addEventListener("click", function(evt) {
-    evt.preventDefault();
-    startGame();
-    console.log("Game Starts!"); })
-
 const gameOver = document.querySelector(".gameOver");
 
 const buttons = document.querySelectorAll(".button");
 
+start.addEventListener("click", function(evt) {
+    evt.preventDefault();
+    console.log("Game Starts!");
+    startGame(); })
+
 function flashButtons() {
-    setInterval( function() {
-        if (order.length < round && turn != 0) {
-            order.push(JSON.stringify(Math.floor(Math.random() * (max - min + 1)) + min));
-            console.log(order);
+    if (order.length < round && turn != 0) {
+        order.push(JSON.stringify(Math.floor(Math.random() * (max - min + 1)) + min));
 
-            order.forEach(function(seq) {
-                console.log(order[seq])
-            });
-
-            if (turn != 0) {
-                turn = 0;
-        } else { return; }
-        }
-    }, 200)
+        if (turn != 0) {
+            turn = 0;
+        } else { turn = 0 }
+    }
+    console.log(order)
 }
 
 function endGame() {
     console.log("Click Start Game to retry!");
-    // start.style.visibility = "null;"
     start.style.visibility = "visible";
 }
 
@@ -45,9 +38,10 @@ function checkOrder() {
         gameOver.style.visibility = "visible";
         console.log(gameOver.style.visibility);
         endGame();
-        return;
     } else {
         round = round + 1;
+        playerOrder.length = 0;
+        flashButtons();
     }
 }
 
@@ -71,20 +65,19 @@ buttons.forEach(function(but) {
     but.addEventListener("click", function(evt) {
         evt.preventDefault();
         
-            if (playerOrder.length < order.length - 1 && turn == 0) {
-                console.log(but.value);
-                playerOrder.push(but.value);
-                console.log(playerOrder);
-                console.log(round);
-            } else if (playerOrder.length == order.length - 1) {
-                playerOrder.push(but.value);
-                console.log(playerOrder);
-                checkOrder();
-                playerOrder.length = 0;
-                turn = 1;
-                return;
-            } else {
-                return;
-            }
+        if (playerOrder.length < order.length - 1 && turn == 0) {
+            console.log(but.value);
+            playerOrder.push(but.value);
+            console.log(playerOrder);
+            console.log(round);
+        } else if (playerOrder.length == order.length - 1 && turn == 0) {
+            playerOrder.push(but.value);
+            console.log(playerOrder);
+            turn = 1;
+            checkOrder();
+            return;
+        } else {
+            return;
+        }
     })
 })
