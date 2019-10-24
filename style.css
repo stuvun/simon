@@ -17,7 +17,7 @@ header {
 }
 
 .gridWrap {
-    max-width: 500px;
+    max-width: 400px;
     margin: 5vh auto 5vh auto;
 }
 
@@ -62,4 +62,36 @@ header {
 .start {
     text-align: center;
     font-size: 2vw;
+}
+
+.green {
+    background-color: darkgreen;
+}
+
+.lightgreen {
+    background-color: lightgreen;
+}
+
+.red {
+    background-color: darkred;
+}
+
+.lightred {
+    background-color: red;
+}
+
+.yellow {
+    background-color: darkgoldenrod;
+}
+
+.lightyellow {
+    background-color: yellow;
+}
+
+.blue {
+    background-color: darkblue;
+}
+
+.lightblue {
+    background-color: lightskyblue;
 }

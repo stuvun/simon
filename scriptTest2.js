@@ -21,117 +21,64 @@ const gameOver = document.querySelector(".gameOver");
 start.addEventListener("click", function(evt) {
     evt.preventDefault();
     console.log("Game Starts!");
-    startGame(); })
-
-let flashes = function flashOrder() {
-
-}
-
-function flashButtons() {
-    if (order.length < round && turn != 0) {
-        order.push(JSON.stringify(Math.floor(Math.random() * (max - min + 1)) + min));
-
-        if (turn != 0) {
-            turn = 0;
-        } else { turn = 0 }
-    }
-    console.log("Order = " + order)
-}
-
-function endGame() {
-    console.log("Click Start Game to retry!");
-    start.style.visibility = "visible";
-    alert("Your score is: " + round + "!");
-}
-
-// let eachIndex = order.forEach(function(index) {
-//     console.log(index);
-
-//     if (index == 1) {
-//         green.style.visibility = "hidden";
-//         green.style.visibility = "visible";
-//     } else if (index == 2) {
-//         red.style.visibility = "hidden";
-//         red.style.visibility = "visible";
-//     } else if (index == 3) {
-//         yellow.style.visibility = "hidden";
-//         yellow.style.visibility = "visible";
-//     } else if (index == 4) {
-//         blue.style.visibility = "hidden";
-//         blue.style.visibility = "visible";
-//     }
-// });
-
-function eachIndex() {
-    order.forEach(function(index) {
-        console.log(index);
-    
-        if (index == 1) {
-            green.style.visibility = "hidden";
-            setTimeout(function(){ green.style.visibility = "visible";}, 500)
-            console.log("green is:" + green.style.visibility)
-            
-
-        } else if (index == 2) {
-            red.style.visibility = "hidden";
-            setTimeout(function(){red.style.visibility = "visible"; }, 500)
-            console.log("red is:" + red.style.visibility)
-            
-
-        } else if (index == 3) {
-            yellow.style.visibility = "hidden";
-            setTimeout(function(){yellow.style.visibility = "visible"; }, 500)
-            console.log("yellow is:" + yellow.style.visibility)
-            
-
-        } else if (index == 4) {
-            blue.style.visibility = "hidden";
-            setTimeout(function(){ blue.style.visibility = "visible";}, 500)
-            console.log("blue is:" + blue.style.visibility)
-            
-
-        }
-
-
-
-
-    });
-
-} 
-function checkOrder() {
-    if (JSON.stringify(order) != JSON.stringify(playerOrder)) {
-        gameOver.style.visibility = "visible";
-        console.log(gameOver.style.visibility);
-        endGame();
-    } else {
-        round = round + 1;
-        playerOrder.length = 0;
-
-        flashButtons();
-
-        eachIndex();
-    }
-}
+    startGame();
+})
 
 function startGame() {
     if (start.style.visibility == "visible") {
-        start.style.visibility = "hidden"
-    };
+        start.style.visibility = "hidden" };
 
     if (gameOver.style.visibility == "visible") {
-        order.length = 0; round = 1
-    };
+        gameOver.style.visibility = "hidden";
+        order.length = 0;
+        playerOrder.length = 0;
+        round = 1 };
 
-    gameOver.style.visibility = "hidden";
-
-    playerOrder.length = 0;
-
-    flashButtons();
+    flashOrder();
 
     order.forEach(function(index) {
         console.log(index);
     });
 }
+
+function flashButtons() {
+    for (let i = 0; i < order.length; i++) {
+        if (order[i] == 1) {
+            green.classList.add("lightgreen");
+            console.log(green);
+        } else if (order[i] == 2) {
+            red.classList.add("lightred");
+            console.log(red);
+        } else if (order[i] == 3) {
+            yellow.classList.add("lightyellow");
+            console.log(yellow);
+        } else if (order[i] == 4) {
+            blue.classList.add("lightblue");
+            console.log(blue);
+        }
+    }
+    setTimeout(function() {
+        green.classList.remove("lightgreen");
+        console.log(green);
+        red.classList.remove("lightred");
+        console.log(red);
+        yellow.classList.remove("lightyellow");
+        console.log(yellow);
+        blue.classList.remove("lightblue");
+        console.log(blue)
+    }, 500);
+}
+
+function flashOrder() {
+    if (order.length < round && turn != 0) {
+        order.push(JSON.stringify(Math.floor(Math.random() * (max - min + 1)) + min));
+
+        setTimeout(flashButtons(), 500);
+
+        if (turn != 0) { turn = 0 } else { turn = 0 }
+    }
+    console.log("Order = " + order);
+};
 
 buttons.forEach(function(but) {
     but.addEventListener("click", function(evt) {
@@ -147,9 +94,25 @@ buttons.forEach(function(but) {
             console.log(playerOrder);
             turn = 1;
             checkOrder();
-            return;
-        } else {
+            flashOrder();
             return;
         }
     })
 })
+
+function checkOrder() {
+    if (JSON.stringify(order) != JSON.stringify(playerOrder)) {
+        gameOver.style.visibility = "visible";
+        console.log(gameOver.style.visibility);
+        endGame();
+    } else {
+        round = round + 1;
+        playerOrder.length = 0;
+    }
+}
+
+function endGame() {
+    console.log("Click Start Game to retry!");
+    start.style.visibility = "visible";
+    alert("Your score is: " + round + "!");
+}
