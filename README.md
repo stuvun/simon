@@ -2,13 +2,8 @@
 
 ## Description
 
-Simon is a game that tests your memory! Each level, the game will give a visual and audio queue for the sequence you will try to follow. The more you play, the harder it gets!
+Simon is a game that tests your memory! Each level, the game will give a visual and audio queue for the sequence you will try to follow. The more you play, the harder it gets! Just open up your browser and give it a try!
 
-## Example
-
-This game is played on your browser. This is how it should look!:
-
-![alt text](https://github.com/stuvun/stuvun.github.io/blob/02eca2e5e292d62d77df59bc303177852865e147/Screen%20Shot%202019-10-25%20at%209.55.19%20AM.png)
 
 ## List of Technologies Used
 
