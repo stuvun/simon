@@ -84,7 +84,9 @@ function endGame() {
     start.style.visibility = "visible";
     endAudio.play();
     endAudio.currentTime = 0;
-    finalScore = score;
+    if (score > finalScore) {
+        finalScore = score;
+    };
     highScore.innerHTML == "";
     highScore.innerHTML = "HIGH SCORE: " + finalScore;
     console.log(finalScore);
