@@ -5,6 +5,11 @@ let playerOrder = [];
 let turn = 1;
 let i = 0;
 
+var audio1 = new Audio("audio/Short\ Beep\ Tone-SoundBible.com-1937840853.mp3");
+var audio2 = new Audio("audio/Checkout\ Scanner\ Beep-SoundBible.com-593325210.mp3");
+var audio3 = new Audio("audio/Beep-SoundBible.com-923660219.mp3");
+var audio4 = new Audio("audio/Bleep-SoundBible.com-1927126940.mp3");
+
 const min = 1;
 const max = 4;
 
@@ -94,6 +99,8 @@ function flashGreen() {
     if (green.classList.contains("lightgreen") == false) {
         setTimeout(function() {
         green.classList.toggle("lightgreen");
+        audio1.play();
+        audio1.currentTime = 0;
         }, ((i + 1) * 500))
     }
     console.log(green + " is true");
@@ -106,6 +113,8 @@ function flashRed() {
     if (red.classList.contains("lightred") == false) {
         setTimeout(function() {
         red.classList.toggle("lightred");
+        audio2.play();
+        audio2.currentTime = 0;
         }, ((i + 1) * 500))
     }
     console.log(red + " is true");
@@ -118,6 +127,8 @@ function flashYellow() {
     if (yellow.classList.contains("lightyellow") == false) {
         setTimeout(function() {
         yellow.classList.toggle("lightyellow");
+        audio3.play();
+        audio3.currentTime = 0;
         }, ((i + 1) * 500))
     }
     console.log(yellow + " is true");
@@ -130,6 +141,8 @@ function flashBlue() {
     if (blue.classList.contains("lightblue") == false) {
         setTimeout(function() {
         blue.classList.toggle("lightblue");
+        audio4.play();
+        audio4.currentTime = 0;
         }, ((i + 1) * 500))
     }
     console.log(blue + " is true");
