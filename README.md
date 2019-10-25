@@ -13,6 +13,7 @@ This game is played on your browser. This is how it should look!:
 ## List of Technologies Used
 
 * Visual Studio Code
+* HTML / CSS / JavaScript
 
 ## Getting Started
 
