@@ -1,5 +1,4 @@
 let round = 1;
-let flash = round;
 let order = [];
 let playerOrder = [];
 let turn = 1;
@@ -9,12 +8,8 @@ var audio1 = new Audio("audio/Short\ Beep\ Tone-SoundBible.com-1937840853.mp3");
 var audio2 = new Audio("audio/Checkout\ Scanner\ Beep-SoundBible.com-593325210.mp3");
 var audio3 = new Audio("audio/Beep-SoundBible.com-923660219.mp3");
 var audio4 = new Audio("audio/Bleep-SoundBible.com-1927126940.mp3");
-
 var endAudio = new Audio("audio/iMac_Startup_Chime-Carlo_-1849294605.mp3");
 var startAudio = new Audio("audio/Jump-SoundBible.com-1007297584.mp3");
-
-const min = 1;
-const max = 4;
 
 const green = document.querySelector(".item1");
 const red = document.querySelector(".item2");
@@ -22,14 +17,11 @@ const yellow = document.querySelector(".item3");
 const blue = document.querySelector(".item4");
 
 const buttons = document.querySelectorAll(".button");
-
 const start = document.querySelector(".start");
-
 const gameOver = document.querySelector(".gameOverContainer");
 
 start.addEventListener("click", function(evt) {
     evt.preventDefault();
-    console.log("Game Starts!");
     startAudio.play();
     startAudio.currentTime = 0;
     startGame();
@@ -44,17 +36,13 @@ buttons.forEach(function(but) {
             } else if (but.value == "2") { audio2.play(); audio2.currentTime = 0
             } else if (but.value == "3") { audio3.play(); audio3.currentTime = 0
             } else if (but.value == "4") { audio4.play(); audio4.currentTime = 0 };
-            console.log(but.value);
             playerOrder.push(but.value);
-            console.log(playerOrder);
-            console.log(round);
         } else if (playerOrder.length == order.length - 1 && turn == 0) {
             if (but.value == "1") { audio1.play(); audio1.currentTime = 0;
             } else if (but.value == "2") { audio2.play(); audio2.currentTime = 0
             } else if (but.value == "3") { audio3.play(); audio3.currentTime = 0
             } else if (but.value == "4") { audio4.play(); audio4.currentTime = 0 };
             playerOrder.push(but.value);
-            console.log(playerOrder);
             turn = 1;
             checkOrder();
             setTimeout(function() { flashOrder() }, ((i + 1) * 500));
@@ -74,15 +62,10 @@ function startGame() {
         round = 1 };
     
     flashOrder();
-
-    order.forEach(function(index) {
-        console.log(index);
-    });
 }
 
 function checkOrder() {
     if (JSON.stringify(order) != JSON.stringify(playerOrder)) {
-        console.log(gameOver.style.visibility);
         endGame();
     } else {
         round = round + 1;
@@ -91,7 +74,6 @@ function checkOrder() {
 }
 
 function endGame() {
-    console.log("Click Start Game to retry!");
     gameOver.style.visibility = "visible";
     start.style.visibility = "visible";
     endAudio.play();
@@ -100,13 +82,12 @@ function endGame() {
 
 function flashOrder() {
     if (order.length < round && turn != 0) {
-        order.push(JSON.stringify(Math.floor(Math.random() * (max - min + 1)) + min));
+        order.push(JSON.stringify(Math.floor(Math.random() * (4)) + 1));
 
         setTimeout(function() { flashButtons() }, ((i + 1) * 500));
 
         if (turn != 0) { turn = 0 } else { turn = 0 }
     }
-    console.log("Order = " + order);
 };
 
 function flashGreen() {
@@ -117,10 +98,7 @@ function flashGreen() {
         audio1.currentTime = 0;
         }, ((i + 1) * 500))
     }
-    console.log(green + " is true");
-
     setTimeout(function() { dimGreen() }, ((i + 1) * 700));
-    console.log(green + " is false")
 }
 
 function flashRed() {
@@ -131,10 +109,7 @@ function flashRed() {
         audio2.currentTime = 0;
         }, ((i + 1) * 500))
     }
-    console.log(red + " is true");
-
     setTimeout(function() { dimRed() }, ((i + 1) * 700));
-    console.log(red + " is false")
 }
 
 function flashYellow() {
@@ -145,10 +120,7 @@ function flashYellow() {
         audio3.currentTime = 0;
         }, ((i + 1) * 500))
     }
-    console.log(yellow + " is true");
-
     setTimeout(function() { dimYellow() }, ((i + 1) * 700));
-    console.log(yellow + " is false")
 }
 
 function flashBlue() {
@@ -159,8 +131,6 @@ function flashBlue() {
         audio4.currentTime = 0;
         }, ((i + 1) * 500))
     }
-    console.log(blue + " is true");
-
     setTimeout(function() { dimBlue() }, ((i + 1) * 700));
 }
 
