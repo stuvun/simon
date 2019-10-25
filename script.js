@@ -4,12 +4,12 @@ let playerOrder = [];
 let turn = 1;
 let i = 0;
 
-var audio1 = new Audio("audio/Short\ Beep\ Tone-SoundBible.com-1937840853.mp3");
-var audio2 = new Audio("audio/Checkout\ Scanner\ Beep-SoundBible.com-593325210.mp3");
-var audio3 = new Audio("audio/Beep-SoundBible.com-923660219.mp3");
-var audio4 = new Audio("audio/Bleep-SoundBible.com-1927126940.mp3");
-var endAudio = new Audio("audio/iMac_Startup_Chime-Carlo_-1849294605.mp3");
-var startAudio = new Audio("audio/Jump-SoundBible.com-1007297584.mp3");
+const audio1 = new Audio("audio/Short\ Beep\ Tone-SoundBible.com-1937840853.mp3");
+const audio2 = new Audio("audio/Checkout\ Scanner\ Beep-SoundBible.com-593325210.mp3");
+const audio3 = new Audio("audio/Beep-SoundBible.com-923660219.mp3");
+const audio4 = new Audio("audio/Bleep-SoundBible.com-1927126940.mp3");
+const endAudio = new Audio("audio/iMac_Startup_Chime-Carlo_-1849294605.mp3");
+const startAudio = new Audio("audio/Jump-SoundBible.com-1007297584.mp3");
 
 const green = document.querySelector(".item1");
 const red = document.querySelector(".item2");
@@ -19,6 +19,10 @@ const blue = document.querySelector(".item4");
 const buttons = document.querySelectorAll(".button");
 const start = document.querySelector(".start");
 const gameOver = document.querySelector(".gameOverContainer");
+const highScore = document.querySelector(".scoreBoard");
+
+let score = 0;
+let finalScore = 0;
 
 start.addEventListener("click", function(evt) {
     evt.preventDefault();
@@ -53,14 +57,15 @@ buttons.forEach(function(but) {
 
 function startGame() {
     if (start.style.visibility == "visible") {
-        start.style.visibility = "hidden" };
-
+        start.style.visibility = "hidden"
+    };
     if (gameOver.style.visibility == "visible") {
         gameOver.style.visibility = "hidden";
         order.length = 0;
         playerOrder.length = 0;
-        round = 1 };
-    
+        score = 0;
+        round = 1
+    };
     flashOrder();
 }
 
@@ -69,6 +74,7 @@ function checkOrder() {
         endGame();
     } else {
         round = round + 1;
+        score = score + 1;
         playerOrder.length = 0;
     }
 }
@@ -78,6 +84,10 @@ function endGame() {
     start.style.visibility = "visible";
     endAudio.play();
     endAudio.currentTime = 0;
+    finalScore = score;
+    highScore.innerHTML == "";
+    highScore.innerHTML = "HIGH SCORE: " + finalScore;
+    console.log(finalScore);
 }
 
 function flashOrder() {
@@ -86,9 +96,25 @@ function flashOrder() {
 
         setTimeout(function() { flashButtons() }, ((i + 1) * 500));
 
-        if (turn != 0) { turn = 0 } else { turn = 0 }
+        if (turn != 0) {
+            turn = 0
+        }
     }
 };
+
+function flashButtons() {
+    for (let i = 0; i < order.length; i++) {
+        if (order[i] == 1) {
+            setTimeout(function() { flashGreen() }, ((i + 1) * 500));
+        } else if (order[i] == 2) {
+            setTimeout(function() { flashRed() }, ((i + 1) * 500));
+        } else if (order[i] == 3) {
+            setTimeout(function() { flashYellow() }, ((i + 1) * 500));
+        } else if (order[i] == 4) {
+            setTimeout(function() { flashBlue() }, ((i + 1) * 500));
+        }
+    }
+}
 
 function flashGreen() {
     if (green.classList.contains("lightgreen") == false) {
@@ -164,18 +190,4 @@ function dimBlue() {
         blue.classList.toggle("lightblue");
         }, ((i + 1) * 200))
     } else { blue.classList.remove("lightblue") }
-}
-
-function flashButtons() {
-    for (let i = 0; i < order.length; i++) {
-        if (order[i] == 1) {
-            setTimeout(function() { flashGreen() }, ((i + 1) * 500));
-        } else if (order[i] == 2) {
-            setTimeout(function() { flashRed() }, ((i + 1) * 500));
-        } else if (order[i] == 3) {
-            setTimeout(function() { flashYellow() }, ((i + 1) * 500));
-        } else if (order[i] == 4) {
-            setTimeout(function() { flashBlue() }, ((i + 1) * 500));
-        }
-    }
 }

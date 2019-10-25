@@ -222,3 +222,16 @@ header {
 .try {
     font-size: 3vh;
 }
+
+.scoreContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    margin: 3% auto;
+}
+
+.scoreBoard {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2vh;
+}
