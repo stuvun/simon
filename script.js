@@ -22,7 +22,7 @@ const gameOver = document.querySelector(".gameOverContainer");
 const highScore = document.querySelector(".scoreBoard");
 
 let score = 0;
-let finalScore = 0;
+let highScores = parseInt(localStorage.getItem("highScores"));
 
 start.addEventListener("click", function(evt) {
     evt.preventDefault();
@@ -84,12 +84,12 @@ function endGame() {
     start.style.visibility = "visible";
     endAudio.play();
     endAudio.currentTime = 0;
-    if (score > finalScore) {
-        finalScore = score;
+    if (score > parseInt(localStorage.getItem("highScores"))) {
+        localStorage.setItem("highScores", score);
     };
     highScore.innerHTML == "";
-    highScore.innerHTML = "HIGH SCORE: " + finalScore;
-    console.log(finalScore);
+    highScore.innerHTML = "HIGH SCORE: " + localStorage.getItem("highScores");
+    console.log(highScores);
 }
 
 function flashOrder() {
