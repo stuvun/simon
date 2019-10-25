@@ -201,6 +201,7 @@ header {
 
 .gameOverContainer {
     position: absolute;
+    margin: 0 auto;
     top: 37%;
     width: 100%;
     height: 20%;
