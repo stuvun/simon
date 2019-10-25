@@ -17,12 +17,32 @@ const buttons = document.querySelectorAll(".button");
 
 const start = document.querySelector(".start");
 
-const gameOver = document.querySelector(".gameOver");
+const gameOver = document.querySelector(".gameOverContainer");
 
 start.addEventListener("click", function(evt) {
     evt.preventDefault();
     console.log("Game Starts!");
     startGame();
+})
+
+buttons.forEach(function(but) {
+    but.addEventListener("click", function(evt) {
+        evt.preventDefault();
+        
+        if (playerOrder.length < order.length - 1 && turn == 0) {
+            console.log(but.value);
+            playerOrder.push(but.value);
+            console.log(playerOrder);
+            console.log(round);
+        } else if (playerOrder.length == order.length - 1 && turn == 0) {
+            playerOrder.push(but.value);
+            console.log(playerOrder);
+            turn = 1;
+            checkOrder();
+            setTimeout(function() { flashOrder() }, ((i + 1) * 500));
+            return;
+        }
+    })
 })
 
 function startGame() {
@@ -42,6 +62,34 @@ function startGame() {
     });
 }
 
+function checkOrder() {
+    if (JSON.stringify(order) != JSON.stringify(playerOrder)) {
+        gameOver.style.visibility = "visible";
+        console.log(gameOver.style.visibility);
+        endGame();
+    } else {
+        round = round + 1;
+        playerOrder.length = 0;
+    }
+}
+
+function endGame() {
+    console.log("Click Start Game to retry!");
+    start.style.visibility = "visible";
+    alert("Your score is: " + round + "!");
+}
+
+function flashOrder() {
+    if (order.length < round && turn != 0) {
+        order.push(JSON.stringify(Math.floor(Math.random() * (max - min + 1)) + min));
+
+        setTimeout(function() { flashButtons() }, ((i + 1) * 500));
+
+        if (turn != 0) { turn = 0 } else { turn = 0 }
+    }
+    console.log("Order = " + order);
+};
+
 function flashGreen() {
     if (green.classList.contains("lightgreen") == false) {
         setTimeout(function() {
@@ -50,16 +98,8 @@ function flashGreen() {
     }
     console.log(green + " is true");
 
-    setTimeout(function() { dimGreen() }, ((i + 1) * 600));
+    setTimeout(function() { dimGreen() }, ((i + 1) * 700));
     console.log(green + " is false")
-}
-
-function dimGreen() {
-    if (green.classList.contains("lightgreen") == true) {
-        setTimeout(function() {
-        green.classList.toggle("lightgreen");
-        }, ((i + 1) * 200))
-    } else { green.classList.remove("lightgreen") }
 }
 
 function flashRed() {
@@ -70,16 +110,8 @@ function flashRed() {
     }
     console.log(red + " is true");
 
-    setTimeout(function() { dimRed() }, ((i + 1) * 600));
+    setTimeout(function() { dimRed() }, ((i + 1) * 700));
     console.log(red + " is false")
-}
-
-function dimRed() {
-    if (red.classList.contains("lightred") == true) {
-        setTimeout(function() {
-        red.classList.toggle("lightred");
-        }, ((i + 1) * 200))
-    } else { red.classList.remove("lightred") }
 }
 
 function flashYellow() {
@@ -90,16 +122,8 @@ function flashYellow() {
     }
     console.log(yellow + " is true");
 
-    setTimeout(function() { dimYellow() }, ((i + 1) * 600));
+    setTimeout(function() { dimYellow() }, ((i + 1) * 700));
     console.log(yellow + " is false")
-}
-
-function dimYellow() {
-    if (yellow.classList.contains("lightyellow") == true) {
-        setTimeout(function() {
-        yellow.classList.toggle("lightyellow");
-        }, ((i + 1) * 200))
-    } else { yellow.classList.remove("lightyellow") }
 }
 
 function flashBlue() {
@@ -110,7 +134,31 @@ function flashBlue() {
     }
     console.log(blue + " is true");
 
-    setTimeout(function() { dimBlue() }, ((i + 1) * 600));
+    setTimeout(function() { dimBlue() }, ((i + 1) * 700));
+}
+
+function dimGreen() {
+    if (green.classList.contains("lightgreen") == true) {
+        setTimeout(function() {
+        green.classList.toggle("lightgreen");
+        }, ((i + 1) * 200))
+    } else { green.classList.remove("lightgreen") }
+}
+
+function dimRed() {
+    if (red.classList.contains("lightred") == true) {
+        setTimeout(function() {
+        red.classList.toggle("lightred");
+        }, ((i + 1) * 200))
+    } else { red.classList.remove("lightred") }
+}
+
+function dimYellow() {
+    if (yellow.classList.contains("lightyellow") == true) {
+        setTimeout(function() {
+        yellow.classList.toggle("lightyellow");
+        }, ((i + 1) * 200))
+    } else { yellow.classList.remove("lightyellow") }
 }
 
 function dimBlue() {
@@ -133,52 +181,4 @@ function flashButtons() {
             setTimeout(function() { flashBlue() }, ((i + 1) * 500));
         }
     }
-}
-
-function flashOrder() {
-    if (order.length < round && turn != 0) {
-        order.push(JSON.stringify(Math.floor(Math.random() * (max - min + 1)) + min));
-
-        setTimeout(function() { flashButtons() }, ((i + 1) * 500));
-
-        if (turn != 0) { turn = 0 } else { turn = 0 }
-    }
-    console.log("Order = " + order);
-};
-
-buttons.forEach(function(but) {
-    but.addEventListener("click", function(evt) {
-        evt.preventDefault();
-        
-        if (playerOrder.length < order.length - 1 && turn == 0) {
-            console.log(but.value);
-            playerOrder.push(but.value);
-            console.log(playerOrder);
-            console.log(round);
-        } else if (playerOrder.length == order.length - 1 && turn == 0) {
-            playerOrder.push(but.value);
-            console.log(playerOrder);
-            turn = 1;
-            checkOrder();
-            setTimeout(function() { flashOrder() }, ((i + 1) * 500));
-            return;
-        }
-    })
-})
-
-function checkOrder() {
-    if (JSON.stringify(order) != JSON.stringify(playerOrder)) {
-        gameOver.style.visibility = "visible";
-        console.log(gameOver.style.visibility);
-        endGame();
-    } else {
-        round = round + 1;
-        playerOrder.length = 0;
-    }
-}
-
-function endGame() {
-    console.log("Click Start Game to retry!");
-    start.style.visibility = "visible";
-    alert("Your score is: " + round + "!");
 }

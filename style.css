@@ -19,8 +19,9 @@ html, body {
 
 header {
     font-family: 'Bungee Shade', cursive;
-    font-size: 7vw;
+    font-size: 10vh;
     text-align: center;
+    padding-top: 0;
 }
 
 .gridWrap {
@@ -196,4 +197,29 @@ header {
 
 .start:focus {
     outline: none;
+}
+
+.gameOverContainer {
+    position: absolute;
+    top: 37%;
+    width: 100%;
+    height: 20%;
+    background: rgba(0, 0, 0, 0.65);
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.gameOver {
+    line-height: center;
+    text-align: center;
+    color: white;
+}
+
+.over {
+    font-family: 'Playfair Display SC', serif;
+    font-size: 6vh;
+}
+
+.try {
+    font-size: 3vh;
 }
