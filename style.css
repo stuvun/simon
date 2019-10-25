@@ -4,26 +4,33 @@ html, body {
     margin: 0 auto;
     padding: 0px;
     overflow-x: hidden;
-    box-sizing: border-box; }
+    box-sizing: border-box;
+}
 
-*, *:before, *:after { box-sizing: inherit;}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+.headerContainer {
+    position: relative;
+    max-width: 800px;
+    margin: 5vh auto 0 auto;
+}
 
 header {
-    max-width: 500px;
-    margin: 0 auto;
-    font-family: Helvetica, sans-serif;
+    font-family: 'Bungee Shade', cursive;
     font-size: 7vw;
     text-align: center;
 }
 
 .gridWrap {
-    max-width: 400px;
-    margin: 5vh auto 5vh auto;
+    max-width: 450px;
+    margin: 0 auto 7vh auto;
 }
 
 .buttonContainer .button {
     display: grid;
-    padding-top: 100%;
+    padding-top: 80%;
 }
 
 .buttonContainer {
@@ -31,41 +38,39 @@ header {
     display: grid;
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
-    overflow: hidden; }
+}
+
+.button {
+    margin: 5%;
+}
+
+.button:active {
+    box-shadow: none;
+    transform: translateY(1.5vh);
+}
 
 .button:focus { 
-    outline: none; } 
-
-.item1 {
-    grid-row: 1 / span 1;
-    grid-column: 1 / span 1; }
-
-.item2 {
-    grid-row: 1 / span 1;
-    grid-column: 2 / span 1; }
-
-.item3 {
-    grid-row: 2 / span 1;
-    grid-column: 1 / span 1; }
-
-.item4 {
-    grid-row: 2 / span 1;
-    grid-column: 2 / span 1; }
-
-.startContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    max-width: 100vw;
-    margin: 0 auto; }
-
-.start {
-    text-align: center;
-    font-size: 2vw;
-}
+    outline: none;
+} 
 
 .green {
     background-color: darkgreen;
+    border: 0px solid rgba(0, 0, 0, 0.301);
+    border-top-left-radius: 100%;
+    box-shadow: 0.1vh 0.1vw 0.1vh rgb(0, 70, 0),
+                0.1vh 0.2vw 0.1vh rgb(0, 70, 0),     /*| This gives the buttons    |*/
+                0.1vh 0.3vw 0.1vh rgb(0, 70, 0),     /*| a 3D appearance by adding |*/
+                0.1vh 0.4vw 0.1vh rgb(0, 70, 0),     /*| layers of shadows         |*/
+                0.1vh 0.5vw 0.1vh rgb(0, 70, 0),
+                0.1vh 0.6vw 0.1vh rgb(0, 70, 0),
+                0.1vh 0.7vw 0.1vh rgb(0, 70, 0),
+                0.1vh 0.8vw 0.1vh rgb(0, 70, 0),
+                0.1vh 0.9vw 0.1vh rgb(0, 70, 0),
+                0.1vh 1.1vw 0.6vh rgba(160, 160, 160, 0.7),
+                0.1vh 1.3vw 0.6vh rgba(160, 160, 160, 0.3),
+                0.1vh 1.5vw 0.8vh rgba(160, 160, 160, 0.1),                 
+                0.1vh 1.7vw 1.0vh rgba(160, 160, 160, 0.3),
+                0.1vh 1.9vw 0.6vh rgba(160, 160, 160, 0.7)
 }
 
 .lightgreen {
@@ -74,6 +79,22 @@ header {
 
 .red {
     background-color: darkred;
+    border: 0px solid rgba(0, 0, 0, 0.301);
+    border-top-right-radius: 100%;
+    box-shadow: 0.1vh 0.1vw 0.1vh rgb(90, 0, 0),
+                0.1vh 0.2vw 0.1vh rgb(90, 0, 0),     /*| This gives the buttons    |*/
+                0.1vh 0.3vw 0.1vh rgb(90, 0, 0),     /*| a 3D appearance by adding |*/
+                0.1vh 0.4vw 0.1vh rgb(90, 0, 0),     /*| layers of shadows         |*/
+                0.1vh 0.5vw 0.1vh rgb(90, 0, 0),
+                0.1vh 0.6vw 0.1vh rgb(90, 0, 0),
+                0.1vh 0.7vw 0.1vh rgb(90, 0, 0),
+                0.1vh 0.8vw 0.1vh rgb(90, 0, 0),
+                0.1vh 0.9vw 0.1vh rgb(90, 0, 0),
+                0.1vh 1.1vw 0.6vh rgba(160, 160, 160, 0.7),
+                0.1vh 1.3vw 0.6vh rgba(160, 160, 160, 0.3),
+                0.1vh 1.5vw 0.8vh rgba(160, 160, 160, 0.1),                 
+                0.1vh 1.7vw 1.0vh rgba(160, 160, 160, 0.3),
+                0.1vh 1.9vw 0.6vh rgba(160, 160, 160, 0.7)
 }
 
 .lightred {
@@ -82,6 +103,22 @@ header {
 
 .yellow {
     background-color: darkgoldenrod;
+    border: 0px solid rgba(0, 0, 0, 0.301);
+    border-bottom-left-radius: 100%;
+    box-shadow: 0.1vh 0.1vw 0.1vh rgb(135, 90, 0),
+                0.1vh 0.2vw 0.1vh rgb(135, 90, 0),     /*| This gives the buttons    |*/
+                0.1vh 0.3vw 0.1vh rgb(135, 90, 0),     /*| a 3D appearance by adding |*/
+                0.1vh 0.4vw 0.1vh rgb(135, 90, 0),     /*| layers of shadows         |*/
+                0.1vh 0.5vw 0.1vh rgb(135, 90, 0),
+                0.1vh 0.6vw 0.1vh rgb(135, 90, 0),
+                0.1vh 0.7vw 0.1vh rgb(135, 90, 0),
+                0.1vh 0.8vw 0.1vh rgb(135, 90, 0),
+                0.1vh 0.9vw 0.1vh rgb(135, 90, 0),
+                0.1vh 1.1vw 0.6vh rgba(160, 160, 160, 0.7),
+                0.1vh 1.3vw 0.6vh rgba(160, 160, 160, 0.3),
+                0.1vh 1.5vw 0.8vh rgba(160, 160, 160, 0.1),                 
+                0.1vh 1.7vw 1.0vh rgba(160, 160, 160, 0.3),
+                0.1vh 1.9vw 0.6vh rgba(160, 160, 160, 0.7)
 }
 
 .lightyellow {
@@ -90,8 +127,73 @@ header {
 
 .blue {
     background-color: darkblue;
+    border: 0px solid rgba(0, 0, 0, 0.301);
+    border-bottom-right-radius: 100%;
+    box-shadow: 0.1vh 0.1vw 0.1vh rgb(0, 0, 80),
+                0.1vh 0.2vw 0.1vh rgb(0, 0, 80),     /*| This gives the buttons    |*/
+                0.1vh 0.3vw 0.1vh rgb(0, 0, 80),     /*| a 3D appearance by adding |*/
+                0.1vh 0.4vw 0.1vh rgb(0, 0, 80),     /*| layers of shadows         |*/
+                0.1vh 0.5vw 0.1vh rgb(0, 0, 80),
+                0.1vh 0.6vw 0.1vh rgb(0, 0, 80),
+                0.1vh 0.7vw 0.1vh rgb(0, 0, 80),
+                0.1vh 0.8vw 0.1vh rgb(0, 0, 80),
+                0.1vh 0.9vw 0.1vh rgb(0, 0, 80),
+                0.1vh 1.1vw 0.6vh rgba(160, 160, 160, 0.7),
+                0.1vh 1.3vw 0.6vh rgba(160, 160, 160, 0.3),
+                0.1vh 1.5vw 0.8vh rgba(160, 160, 160, 0.1),                 
+                0.1vh 1.7vw 1.0vh rgba(160, 160, 160, 0.3),
+                0.1vh 1.9vw 0.6vh rgba(160, 160, 160, 0.7)
 }
 
 .lightblue {
     background-color: lightskyblue;
+}
+
+.startContainer {
+    display: block;
+    position: relative;
+    max-width: 300px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Initial position of letters before hovering */
+.start {
+    display: block;
+    font-family: 'Prompt', sans-serif;
+    font-size: 3vh;
+    font-weight: normal;
+    color: white;
+    position: relative;
+    text-shadow: 0px 0.125vw 0px rgba(255, 255, 255, 0.3), 0px -0.125vw 0px rgba(29, 29, 29, 0.7);
+    text-align: center;
+    background-color: rgb(0, 160, 0);
+    margin: 0 auto;
+    margin-bottom: 5%;
+    border: 0px solid rgba(0, 0, 0, 0.301);
+    border-radius: 30vh;
+    padding: 5% 10%;
+    box-shadow: 0.1vh 0.1vw 0.1vh rgb(0, 70, 0),
+                0.1vh 0.2vw 0.1vh rgb(0, 70, 0),     /*| This gives the buttons    |*/
+                0.1vh 0.3vw 0.1vh rgb(0, 70, 0),     /*| a 3D appearance by adding |*/
+                0.1vh 0.4vw 0.1vh rgb(0, 70, 0),     /*| layers of shadows         |*/
+                0.1vh 0.5vw 0.1vh rgb(0, 70, 0),
+                0.1vh 0.6vw 0.1vh rgb(0, 70, 0),
+                0.1vh 0.7vw 0.1vh rgb(0, 70, 0),
+                0.1vh 0.8vw 0.1vh rgb(0, 70, 0),
+                0.1vh 0.9vw 0.1vh rgb(0, 70, 0),
+                0.1vh 1.1vw 0.6vh rgba(160, 160, 160, 0.7),
+                0.1vh 1.3vw 0.6vh rgba(160, 160, 160, 0.3),
+                0.1vh 1.5vw 0.8vh rgba(160, 160, 160, 0.1),                 
+                0.1vh 1.7vw 1.0vh rgba(160, 160, 160, 0.3),
+                0.1vh 1.9vw 0.6vh rgba(160, 160, 160, 0.7)
+}
+
+.start:active {
+    box-shadow: none;
+    transform: translateY(1.5vh);
+}
+
+.start:focus {
+    outline: none;
 }

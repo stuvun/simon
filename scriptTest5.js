@@ -50,7 +50,7 @@ function flashGreen() {
     }
     console.log(green + " is true");
 
-    setTimeout(function() { dimGreen() }, ((i + 1) * 500));
+    setTimeout(function() { dimGreen() }, ((i + 1) * 600));
     console.log(green + " is false")
 }
 
@@ -58,7 +58,7 @@ function dimGreen() {
     if (green.classList.contains("lightgreen") == true) {
         setTimeout(function() {
         green.classList.toggle("lightgreen");
-        }, ((i + 1) * 150))
+        }, ((i + 1) * 200))
     } else { green.classList.remove("lightgreen") }
 }
 
@@ -70,7 +70,7 @@ function flashRed() {
     }
     console.log(red + " is true");
 
-    setTimeout(function() { dimRed() }, ((i + 1) * 500));
+    setTimeout(function() { dimRed() }, ((i + 1) * 600));
     console.log(red + " is false")
 }
 
@@ -78,7 +78,7 @@ function dimRed() {
     if (red.classList.contains("lightred") == true) {
         setTimeout(function() {
         red.classList.toggle("lightred");
-        }, ((i + 1) * 150))
+        }, ((i + 1) * 200))
     } else { red.classList.remove("lightred") }
 }
 
@@ -90,7 +90,7 @@ function flashYellow() {
     }
     console.log(yellow + " is true");
 
-    setTimeout(function() { dimYellow() }, ((i + 1) * 500));
+    setTimeout(function() { dimYellow() }, ((i + 1) * 600));
     console.log(yellow + " is false")
 }
 
@@ -98,7 +98,7 @@ function dimYellow() {
     if (yellow.classList.contains("lightyellow") == true) {
         setTimeout(function() {
         yellow.classList.toggle("lightyellow");
-        }, ((i + 1) * 150))
+        }, ((i + 1) * 200))
     } else { yellow.classList.remove("lightyellow") }
 }
 
@@ -110,14 +110,14 @@ function flashBlue() {
     }
     console.log(blue + " is true");
 
-    setTimeout(function() { dimBlue() }, ((i + 1) * 500));
+    setTimeout(function() { dimBlue() }, ((i + 1) * 600));
 }
 
 function dimBlue() {
     if (blue.classList.contains("lightblue") == true) {
         setTimeout(function() {
         blue.classList.toggle("lightblue");
-        }, ((i + 1) * 150))
+        }, ((i + 1) * 200))
     } else { blue.classList.remove("lightblue") }
 }
 

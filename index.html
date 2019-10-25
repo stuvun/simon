@@ -8,9 +8,20 @@
     <title>Document</title>
 
     <link rel="stylesheet" type="text/css" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Shade&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Prompt&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>SIMON</header>
+    <header>
+        <div class="headerContainer">
+            <span class="simon" style="color: green;">S</span>
+            <span class="simon" style="color: red;">I</span>    
+            <span class="simon" style="color: goldenrod;">M</span>
+            <span class="simon" style="color: blue;">O</span>
+            <span class="simon" style="color: green;">N</span>
+        </div>
+    </header>
 
     <div class="gameOver" style="visibility: hidden;">Game Over</div>
     <div class="scoreBoard" style="visibility: hidden;">Your score is:&nbsp</div>
@@ -25,7 +36,7 @@
     </div>
 
     <div class="startContainer">
-        <button class="start" style="visibility: visible;">Start Game!</button>
+        <button class="start" style="visibility: visible;"><span class="startButton">Start Game</span></button>
     </div>
     
     <script src="scriptTest5.js"></script>
