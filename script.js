@@ -22,13 +22,13 @@ const gameOver = document.querySelector(".gameOverContainer");
 const highScore = document.querySelector(".scoreBoard");
 
 let score = 0;
-let highScores = parseInt(localStorage.getItem("highScores"));
-if (parseInt(localStorage.getItem("highScores")) == false) {
-    localStorage.setItem("highScores", 0);
+let highScores = parseInt(sessionStorage.getItem("highScores"));
+if (parseInt(sessionStorage.getItem("highScores")) == false) {
+    sessionStorage.setItem("highScores", 0);
 }
 
 highScore.innerHTML == "";
-highScore.innerHTML = "HIGH SCORE: " + localStorage.getItem("highScores");
+highScore.innerHTML = "HIGH SCORE: " + sessionStorage.getItem("highScores");
 
 start.addEventListener("click", function(evt) {
     evt.preventDefault();
@@ -90,11 +90,11 @@ function endGame() {
     start.style.visibility = "visible";
     endAudio.play();
     endAudio.currentTime = 0;
-    if (score > parseInt(localStorage.getItem("highScores"))) {
-        localStorage.setItem("highScores", score);
+    if (score > parseInt(sessionStorage.getItem("highScores"))) {
+        sessionStorage.setItem("highScores", score);
     };
     highScore.innerHTML == "";
-    highScore.innerHTML = "HIGH SCORE: " + localStorage.getItem("highScores");
+    highScore.innerHTML = "HIGH SCORE: " + sessionStorage.getItem("highScores");
     console.log(highScores);
 }
 
