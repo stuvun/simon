@@ -10,6 +10,9 @@ var audio2 = new Audio("audio/Checkout\ Scanner\ Beep-SoundBible.com-593325210.m
 var audio3 = new Audio("audio/Beep-SoundBible.com-923660219.mp3");
 var audio4 = new Audio("audio/Bleep-SoundBible.com-1927126940.mp3");
 
+var endAudio = new Audio("audio/iMac_Startup_Chime-Carlo_-1849294605.mp3");
+var startAudio = new Audio("audio/Jump-SoundBible.com-1007297584.mp3");
+
 const min = 1;
 const max = 4;
 
@@ -27,6 +30,8 @@ const gameOver = document.querySelector(".gameOverContainer");
 start.addEventListener("click", function(evt) {
     evt.preventDefault();
     console.log("Game Starts!");
+    startAudio.play();
+    startAudio.currentTime = 0;
     startGame();
 })
 
@@ -69,7 +74,6 @@ function startGame() {
 
 function checkOrder() {
     if (JSON.stringify(order) != JSON.stringify(playerOrder)) {
-        gameOver.style.visibility = "visible";
         console.log(gameOver.style.visibility);
         endGame();
     } else {
@@ -80,8 +84,10 @@ function checkOrder() {
 
 function endGame() {
     console.log("Click Start Game to retry!");
+    gameOver.style.visibility = "visible";
     start.style.visibility = "visible";
-    alert("Your score is: " + round + "!");
+    endAudio.play();
+    endAudio.currentTime = 0;
 }
 
 function flashOrder() {
