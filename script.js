@@ -22,10 +22,10 @@ const gameOver = document.querySelector(".gameOverContainer");
 const highScore = document.querySelector(".scoreBoard");
 
 let score = 0;
-let highScores = parseInt(localStorage.getItem("highScores"));
 if (parseInt(localStorage.getItem("highScores")) == false) {
     localStorage.setItem("highScores", 0);
 }
+let highScores = parseInt(localStorage.getItem("highScores"));
 
 highScore.innerHTML == "";
 highScore.innerHTML = "HIGH SCORE: " + localStorage.getItem("highScores");
