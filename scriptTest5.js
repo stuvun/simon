@@ -40,11 +40,19 @@ buttons.forEach(function(but) {
         evt.preventDefault();
         
         if (playerOrder.length < order.length - 1 && turn == 0) {
+            if (but.value == "1") { audio1.play(); audio1.currentTime = 0;
+            } else if (but.value == "2") { audio2.play(); audio2.currentTime = 0
+            } else if (but.value == "3") { audio3.play(); audio3.currentTime = 0
+            } else if (but.value == "4") { audio4.play(); audio4.currentTime = 0 };
             console.log(but.value);
             playerOrder.push(but.value);
             console.log(playerOrder);
             console.log(round);
         } else if (playerOrder.length == order.length - 1 && turn == 0) {
+            if (but.value == "1") { audio1.play(); audio1.currentTime = 0;
+            } else if (but.value == "2") { audio2.play(); audio2.currentTime = 0
+            } else if (but.value == "3") { audio3.play(); audio3.currentTime = 0
+            } else if (but.value == "4") { audio4.play(); audio4.currentTime = 0 };
             playerOrder.push(but.value);
             console.log(playerOrder);
             turn = 1;
