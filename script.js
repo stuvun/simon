@@ -24,7 +24,7 @@ const highScore = document.querySelector(".scoreBoard");
 let score = 0;
 let highScores = parseInt(localStorage.getItem("highScores"));
 if (parseInt(localStorage.getItem("highScores")) == false) {
-    highScores = 0;
+    localStorage.setItem("highScores", 0);
 }
 
 highScore.innerHTML == "";
