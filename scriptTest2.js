@@ -33,7 +33,7 @@ function startGame() {
         order.length = 0;
         playerOrder.length = 0;
         round = 1 };
-
+    
     flashOrder();
 
     order.forEach(function(index) {
@@ -44,36 +44,97 @@ function startGame() {
 function flashButtons() {
     for (let i = 0; i < order.length; i++) {
         if (order[i] == 1) {
-            green.classList.add("lightgreen");
-            console.log(green);
+            if (green.classList.contains("lightgreen") == false) {
+                setTimeout(function() {
+                green.classList.toggle("lightgreen");
+                }, ((i + 1) * 1000))
+            } else if (green.classList.contains("lightgreen") == true) {
+                green.classList.toggle("lightgreen");
+                setTimeout(function() {
+                    green.classList.toggle("lightgreen");
+                }, ((i + 1) * 1000))
+            }
+            console.log(green + " is true")
         } else if (order[i] == 2) {
-            red.classList.add("lightred");
-            console.log(red);
+            if (red.classList.contains("lightred") == false) {
+                setTimeout(function() {
+                red.classList.toggle("lightred");
+                }, ((i + 1) * 1000))
+            } else if (red.classList.contains("lightred") == true) {
+                red.classList.toggle("lightred");
+                setTimeout(function() {
+                    red.classList.toggle("lightred");
+                }, ((i + 1) * 1000))
+            }
+            console.log(red + " is true")
         } else if (order[i] == 3) {
-            yellow.classList.add("lightyellow");
-            console.log(yellow);
+            if (yellow.classList.contains("lightyellow") == false) {
+                setTimeout(function() {
+                yellow.classList.toggle("lightyellow");
+                }, ((i + 1) * 1000))
+            } else if (yellow.classList.contains("lightyellow") == true) {
+                yellow.classList.toggle("lightyellow");
+                setTimeout(function() {
+                    yellow.classList.toggle("lightyellow");
+                }, ((i + 1) * 1000))
+            }
+            console.log(yellow + " is true")
         } else if (order[i] == 4) {
-            blue.classList.add("lightblue");
-            console.log(blue);
+            if (blue.classList.contains("lightblue") == false) {
+                setTimeout(function() {
+                blue.classList.toggle("lightblue");
+                }, ((i + 1) * 1000))
+            } else if (blue.classList.contains("lightblue") == true) {
+                blue.classList.toggle("lightblue");
+                setTimeout(function() {
+                    blue.classList.toggle("lightblue");
+                }, ((i + 1) * 1000))
+            }
+            console.log(blue + " is true")
         }
     }
-    setTimeout(function() {
-        green.classList.remove("lightgreen");
-        console.log(green);
-        red.classList.remove("lightred");
-        console.log(red);
-        yellow.classList.remove("lightyellow");
-        console.log(yellow);
-        blue.classList.remove("lightblue");
-        console.log(blue)
-    }, 500);
+}
+
+function dimButtons() {
+    for (let i = 0; i < order.length; i++) {
+        if (order[i] == 1) {
+            if (green.classList.contains("lightgreen") == true) {
+                setTimeout(function() {
+                green.classList.toggle("lightgreen")
+                }, ((i + 1) * 1000))
+            } else { green.classList.toggle("lightgreen") }
+            console.log(green)
+        } else if (order[i] == 2) {
+            if (red.classList.contains("lightred") == true) {
+                setTimeout(function() {
+                red.classList.toggle("lightred")
+                }, ((i + 1) * 1000))
+            } else { red.classList.toggle("lightred") }
+            console.log(red)
+        } else if (order[i] == 3) {
+            if (yellow.classList.contains("lightyellow") == true) {
+                setTimeout(function() {
+                yellow.classList.toggle("lightyellow")
+                }, ((i + 1) * 1000))
+            } else { yellow.classList.toggle("lightyellow") }
+            console.log(yellow)
+        } else if (order[i] == 4) {
+            if (blue.classList.contains("lightblue") == true) {
+                setTimeout(function() {
+                blue.classList.toggle("lightblue")
+                }, ((i + 1) * 1000))
+            } else { blue.classList.toggle("lightblue") }
+            console.log(blue)
+        }
+    }
 }
 
 function flashOrder() {
     if (order.length < round && turn != 0) {
         order.push(JSON.stringify(Math.floor(Math.random() * (max - min + 1)) + min));
 
-        setTimeout(flashButtons(), 500);
+        flashButtons();
+        dimButtons();
 
         if (turn != 0) { turn = 0 } else { turn = 0 }
     }
