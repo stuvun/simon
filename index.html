@@ -7,7 +7,7 @@
 
     <title>Document</title>
 
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="./style.css">
 
     <link href="https://fonts.googleapis.com/css?family=Bungee+Shade&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Prompt&display=swap" rel="stylesheet">
@@ -15,35 +15,37 @@
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="headerContainer">
-            <span class="simon" style="color: green;">S</span>
-            <span class="simon" style="color: red;">I</span>
-            <span class="simon" style="color: goldenrod;">M</span>
-            <span class="simon" style="color: blue;">O</span>
-            <span class="simon" style="color: green;">N</span>
+    <div class="wrapper">
+        <header>
+            <div class="headerContainer">
+                <span class="simon" style="color: green;">S</span>
+                <span class="simon" style="color: red;">I</span>
+                <span class="simon" style="color: goldenrod;">M</span>
+                <span class="simon" style="color: blue;">O</span>
+                <span class="simon" style="color: green;">N</span>
+            </div>
+        </header>
+
+        <div class="scoreContainer">
+            <div class="scoreBoard"></div>
         </div>
-    </header>
 
-    <div class="scoreContainer">
-        <div class="scoreBoard"></div>
-    </div>
-
-    <div class="gridWrap">
-        <div class="buttonContainer">
-            <button class="button item1 green" value="1"></button>
-            <button class="button item2 red" value="2"></button>
-            <button class="button item3 yellow" value="3"></button>
-            <button class="button item4 blue" value="4"></button>
+        <div class="gridWrap">
+            <div class="buttonContainer">
+                <button class="button item1 green" value="1"></button>
+                <button class="button item2 red" value="2"></button>
+                <button class="button item3 yellow" value="3"></button>
+                <button class="button item4 blue" value="4"></button>
+            </div>
         </div>
-    </div>
 
-    <div class="startContainer">
-        <button class="start" style="visibility: visible;"><span class="startButton">Start Game</span></button>
-    </div>
+        <div class="startContainer">
+            <button class="start" style="visibility: visible;"><span class="startButton">Start Game</span></button>
+        </div>
 
-    <div class="gameOverContainer" style="visibility: hidden;">
-        <div class="gameOver"><br><span class="over">Game Over</span><br><br><span class="try">Try Again?</span></div>
+        <div class="gameOverContainer" style="visibility: hidden;">
+            <div class="gameOver"><br><span class="over">Game Over</span><br><br><span class="try">Try Again?</span></div>
+        </div>
     </div>
     
     <script src="script.js"></script>

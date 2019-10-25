@@ -235,3 +235,8 @@ header {
     font-family: 'Press Start 2P', cursive;
     font-size: 2vh;
 }
+
+.wrapper {
+    max-width: 768px;
+    margin: 0 auto;
+}
