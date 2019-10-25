@@ -15,14 +15,14 @@ Simon is a game that tests your memory! Each level, the game will give a visual 
 * To start the game is rather simple. All you need to do is press 'Start Game'!
 * A few seconds after you've started the game, there will be a visual indicator as well as an audio queue for the sequence of the first level.
 
-![alt text](https://github.com/stuvun/simon/blob/a88751f09291ad45ee94289b73b882d38b043ab7/Screen%20Shot%202019-10-25%20at%2011.48.08%20AM.png)
+![alt text](https://github.com/stuvun/simon/blob/a5b5ba85af2d63b1f13c3cd197555b61e7a01578/images/simonGameplay.jpg)
 
 * After each level, the game will add on to the sequence with an additional step.
 * The game will continue until you get the sequence wrong.
 * Don't worry if you don't go as far as you wanted to, you can always try again!
 * After playing, your high score will display. Let's see how good your memory is!
 
-![alt text](https://github.com/stuvun/stuvun.github.io/blob/02eca2e5e292d62d77df59bc303177852865e147/Screen%20Shot%202019-10-25%20at%2010.11.10%20AM.png)
+![alt text](https://github.com/stuvun/simon/blob/a5b5ba85af2d63b1f13c3cd197555b61e7a01578/images/simonGameover.jpg)
 
 
 ## Installation Instructions
