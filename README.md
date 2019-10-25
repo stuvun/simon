@@ -28,7 +28,7 @@ This game is played on your browser. This is how it should look!:
 
 ## Installation Instructions
 
-You can play Simon here: https://stuvun.github.io/Simon/
+You can play Simon here: https://stuvun.github.io/simon/
 
 If you'd like to have a copy of this game, go ahead and follow these instructions:
 
