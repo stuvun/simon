@@ -24,6 +24,9 @@ const highScore = document.querySelector(".scoreBoard");
 let score = 0;
 let highScores = parseInt(localStorage.getItem("highScores"));
 
+highScore.innerHTML == "";
+highScore.innerHTML = "HIGH SCORE: " + localStorage.getItem("highScores");
+
 start.addEventListener("click", function(evt) {
     evt.preventDefault();
     startAudio.play();
