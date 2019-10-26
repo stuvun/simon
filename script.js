@@ -22,7 +22,7 @@ const gameOver = document.querySelector(".gameOverContainer");
 const highScore = document.querySelector(".scoreBoard");
 
 let score = 0;
-let highScores = parseInt(localStorage.getItem("highScores"));
+let highScores = (localStorage.getItem("highScores"));
 if (parseInt(localStorage.getItem("highScores")) == false) {
     highScores = 0;
 }
