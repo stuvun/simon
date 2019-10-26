@@ -23,7 +23,7 @@ const highScore = document.querySelector(".scoreBoard");
 
 let score = 0;
 let highScores = (localStorage.getItem("highScores"));
-if ((parseInt(localStorage.getItem("highScores")) != true)) {
+if (isNaN(parseInt("highScores")) != false) {
     localStorage.setItem("highScores", 0);
 }
 
@@ -90,7 +90,8 @@ function endGame() {
     start.style.visibility = "visible";
     endAudio.play();
     endAudio.currentTime = 0;
-    if ((parseInt(localStorage.getItem("highScores")) != true)) {
+
+    if (isNaN(parseInt("highScores")) != false) {
         localStorage.setItem("highScores", 0);
         if (score > parseInt(localStorage.getItem("highScores"))) {
             localStorage.setItem("highScores", score);
