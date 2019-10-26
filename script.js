@@ -21,9 +21,12 @@ const start = document.querySelector(".start");
 const gameOver = document.querySelector(".gameOverContainer");
 const highScore = document.querySelector(".scoreBoard");
 
+let nanIs = isNaN(localStorage.getItem("highScores"));
+let getParseInt = parseInt(localStorage.getItem("highScores"));
+
 let score = 0;
-let highScores = (localStorage.getItem("highScores"));
-if (isNaN("highScores") != false) {
+let highScores = parseInt(localStorage.getItem("highScores"));
+if (nanIs != false) {
     localStorage.setItem("highScores", 0);
 }
 
@@ -91,19 +94,19 @@ function endGame() {
     endAudio.play();
     endAudio.currentTime = 0;
 
-    localStorage.getItem("highScores");
-    if (isNaN("highScores") != false) {
+    localStorage.setItem("highScores", getParseInt)
+    if (nanIs != false) {
         localStorage.setItem("highScores", 0);
-        if (score > parseInt(localStorage.getItem("highScores"))) {
+        if (score > getParseInt) {
             localStorage.setItem("highScores", score);
         }
-    } else if (score > parseInt(localStorage.getItem("highScores"))) {
+    } else if (nanIs == false && score > getParseInt) {
         localStorage.setItem("highScores", score);
     };
 
     highScore.innerHTML == "";
     highScore.innerHTML = "HIGH SCORE: " + localStorage.getItem("highScores");
-    console.log(highScores);
+    console.log(getParseInt);
 }
 
 function flashOrder() {
