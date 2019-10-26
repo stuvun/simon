@@ -94,8 +94,10 @@ function endGame() {
         localStorage.setItem("highScores", 0);
         if (score > parseInt(localStorage.getItem("highScores"))) {
             localStorage.setItem("highScores", score);
-        };
-    }
+        }
+    } else if (score > parseInt(localStorage.getItem("highScores"))) {
+        localStorage.setItem("highScores", score);
+    };
 
     highScore.innerHTML == "";
     highScore.innerHTML = "HIGH SCORE: " + localStorage.getItem("highScores");
