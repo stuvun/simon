@@ -23,8 +23,8 @@ const highScore = document.querySelector(".scoreBoard");
 
 let score = 0;
 let highScores = (localStorage.getItem("highScores"));
-if ((localStorage.getItem("highScores")) === null) {
-    highScores = 0;
+if ((parseInt(localStorage.getItem("highScores")) != true)) {
+    localStorage.setItem("highScores", 0);
 }
 
 highScore.innerHTML == "";
@@ -90,13 +90,12 @@ function endGame() {
     start.style.visibility = "visible";
     endAudio.play();
     endAudio.currentTime = 0;
-    if ((localStorage.getItem("highScores")) === null) {
-        highScores = 0;
-    };
-
-    if (score > parseInt(localStorage.getItem("highScores"))) {
-        localStorage.setItem("highScores", score);
-    };
+    if ((parseInt(localStorage.getItem("highScores")) != true)) {
+        localStorage.setItem("highScores", 0);
+        if (score > parseInt(localStorage.getItem("highScores"))) {
+            localStorage.setItem("highScores", score);
+        };
+    }
 
     highScore.innerHTML == "";
     highScore.innerHTML = "HIGH SCORE: " + localStorage.getItem("highScores");
