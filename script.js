@@ -90,9 +90,14 @@ function endGame() {
     start.style.visibility = "visible";
     endAudio.play();
     endAudio.currentTime = 0;
+    if (parseInt(localStorage.getItem("highScores")) == false) {
+        highScores = 0;
+    };
+
     if (score > parseInt(localStorage.getItem("highScores"))) {
         localStorage.setItem("highScores", score);
     };
+    
     highScore.innerHTML == "";
     highScore.innerHTML = "HIGH SCORE: " + localStorage.getItem("highScores");
     console.log(highScores);
