@@ -23,7 +23,7 @@ const highScore = document.querySelector(".scoreBoard");
 
 let score = 0;
 let highScores = (localStorage.getItem("highScores"));
-if ((localStorage.getItem("highScores")) == null) {
+if ((localStorage.getItem("highScores")) === null) {
     highScores = 0;
 }
 
@@ -90,7 +90,7 @@ function endGame() {
     start.style.visibility = "visible";
     endAudio.play();
     endAudio.currentTime = 0;
-    if ((localStorage.getItem("highScores")) == false) {
+    if ((localStorage.getItem("highScores")) === null) {
         highScores = 0;
     };
 
