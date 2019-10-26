@@ -21,17 +21,28 @@ const start = document.querySelector(".start");
 const gameOver = document.querySelector(".gameOverContainer");
 const highScore = document.querySelector(".scoreBoard");
 
-let nanIs = isNaN(localStorage.getItem("highScores"));
-let getParseInt = parseInt(localStorage.getItem("highScores"));
-
 let score = 0;
-let highScores = parseInt(localStorage.getItem("highScores"));
+let getScoreInt = parseInt(localStorage.getItem("highScores"));
+let nanIs = isNaN(localStorage.getItem("highScores"));
+
 if (nanIs != false) {
     localStorage.setItem("highScores", 0);
 }
+highScore.innerText = "HIGH SCORE: " + getScoreInt;
 
-highScore.innerHTML == "";
-highScore.innerHTML = "HIGH SCORE: " + localStorage.getItem("highScores");
+function endGame() {
+    gameOver.style.visibility = "visible";
+    start.style.visibility = "visible";
+    endAudio.play();
+    endAudio.currentTime = 0;
+
+    if (nanIs != false || score > getScoreInt) {
+        localStorage.setItem("highScores", score);
+    } else if (nanIs == false && score > getScoreInt) {
+        localStorage.setItem("highScores", score);
+    }
+    highScore.innerText = "HIGH SCORE: " + localStorage.getItem("highScores");
+}
 
 start.addEventListener("click", function(evt) {
     evt.preventDefault();
@@ -82,31 +93,10 @@ function checkOrder() {
     if (JSON.stringify(order) != JSON.stringify(playerOrder)) {
         endGame();
     } else {
+        score = round;
         round = round + 1;
-        score = score + 1;
         playerOrder.length = 0;
     }
-}
-
-function endGame() {
-    gameOver.style.visibility = "visible";
-    start.style.visibility = "visible";
-    endAudio.play();
-    endAudio.currentTime = 0;
-
-    localStorage.setItem("highScores", getParseInt)
-    if (nanIs != false) {
-        localStorage.setItem("highScores", 0);
-        if (score > getParseInt) {
-            localStorage.setItem("highScores", score);
-        }
-    } else if (nanIs == false && score > getParseInt) {
-        localStorage.setItem("highScores", score);
-    };
-
-    highScore.innerHTML == "";
-    highScore.innerHTML = "HIGH SCORE: " + localStorage.getItem("highScores");
-    console.log(getParseInt);
 }
 
 function flashOrder() {
