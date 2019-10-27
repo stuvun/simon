@@ -28,7 +28,7 @@ let nanIs = isNaN(localStorage.getItem("highScores"));
 if (nanIs != false) {
     localStorage.setItem("highScores", 0);
 }
-highScore.innerText = "HIGH SCORE: " + getScoreInt;
+highScore.innerText = "HIGH SCORE: " + localStorage.getItem("highScores");
 
 function endGame() {
     gameOver.style.visibility = "visible";
